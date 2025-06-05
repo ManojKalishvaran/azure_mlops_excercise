@@ -1,9 +1,9 @@
 name: Triggered training by push
 
-on:
-  push:
-    paths:
-      - src/model/**
+# on:
+#   push:
+#     paths:
+#       - src/model/**
 
 jobs:
   train:

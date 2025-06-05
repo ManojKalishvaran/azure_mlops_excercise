@@ -1,5 +1,5 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-name: 1st triggered when push
+name: 1st-triggered-when-push
 code: model
 command: >-
   python train.py

@@ -21,7 +21,7 @@ jobs:
       run: | 
         flake8 src/model/
     - name: Install pytest
-      run: pip install pytest pytest-cov
+      run: pip install pytest pytest-cov pandas scikit-learn mlflow
     - name: Run pytest
       run: pytest
     - name: Generate report 

@@ -1,5 +1,5 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
-name: first_diabeties
+name: 1st triggered when push
 code: model
 command: >-
   python train.py

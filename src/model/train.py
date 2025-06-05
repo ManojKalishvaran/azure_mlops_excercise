@@ -90,9 +90,9 @@ def parse_args():
     parser = argparse.ArgumentParser()
 
     # add arguments
-    parser.add_argument("--training_data", \
+    parser.add_argument("--training_data", 
                         dest="training_data", type=str)
-    parser.add_argument("--reg_rate", \
+    parser.add_argument("--reg_rate", 
                         dest="reg_rate", type=float, default=0.01)
 
     # parse args

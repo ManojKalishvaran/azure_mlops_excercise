@@ -23,6 +23,7 @@ def main(args):
     X_train, X_test, y_train, y_test = split_data(df)
     print("Just added to check the automated training by push")
     print("2nd print Just added to update check the automated training by push")
+    print("3nd print Just added to update check the automated training by push")
     # train model
     train_model(args.reg_rate, X_train, X_test, y_train, y_test)
 

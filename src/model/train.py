@@ -106,7 +106,7 @@ def parse_args():
 if __name__ == "__main__":
     # add space in logs
     print("\n\n")
-    print("*" * 60)
+    print("*" * 70)
 
     # parse args
     args = parse_args()

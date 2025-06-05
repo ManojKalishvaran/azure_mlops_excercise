@@ -1,8 +1,8 @@
 name: Triggered training by push
 
-on:
-  pull_request:
-    types: [opened, synchronize, reopened]
+# on:
+#   pull_request:
+#     types: [opened, synchronize, reopened]
 
 jobs:
   train:

@@ -3,7 +3,7 @@ name: Triggered training by push
 on:
   push:
     paths:
-      - model/**
+      - src/model/**
 
 jobs:
   train:

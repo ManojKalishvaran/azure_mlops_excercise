@@ -20,5 +20,15 @@ jobs:
     - name: Run linting tests
       run: | 
         flake8 src/model/
-
+    - name: Install pytest
+      run: pip install pytest pytest-cov
+    - name: Run pytest
+      run: pytest
+    - name: Generate report 
+      run: pytest --cov=./src --cov-report=xml:coverage.xml
+    - name: upload coverage report 
+      uses: actions/upload-artifact@v3
+      with:
+        name: converage-test
+        path: coverage.xml
 

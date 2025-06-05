@@ -81,7 +81,7 @@ def split_data(df):
 
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
     # train model
-    LogisticRegression(C=1 / reg_rate, \
+    LogisticRegression(C=1 / reg_rate,
                        solver="liblinear").fit(X_train, y_train)
 
 
@@ -90,9 +90,9 @@ def parse_args():
     parser = argparse.ArgumentParser()
 
     # add arguments
-    parser.add_argument("--training_data", 
+    parser.add_argument("--training_data",
                         dest="training_data", type=str)
-    parser.add_argument("--reg_rate", 
+    parser.add_argument("--reg_rate",
                         dest="reg_rate", type=float, default=0.01)
 
     # parse args

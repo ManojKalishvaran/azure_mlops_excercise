@@ -1,0 +1,27 @@
+name: Deploy model to Endpoint
+on: 
+  workflow_dispatch:
+    
+jobs:
+  deploy-model:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3 
+
+      - name: Install Azure CLI
+        run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+      - name: Install azure ml extension
+        run: az extension add -n ml -y
+
+      - name: Azure login 
+        uses: azure/login@v1 
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: create online endpoint
+        run: az ml online-endpoint create --file src/endpoint.yml || echo "Endpoint already exists"
+
+      - name: Deploy model to endpoint
+        run: az ml online-deployment create --file src/deployment.yml --all-traffic

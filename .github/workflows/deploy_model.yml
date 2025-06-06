@@ -24,4 +24,4 @@ jobs:
         run: az ml online-endpoint create --file src/endpoint.yml || echo "Endpoint already exists"
 
       - name: Deploy model to endpoint
-        run: az ml online-deployment create --file src/deployment.yml --all-traffic
+        run: az ml online-deployment create --file src/deployment.yml --resource-group ml_studio_rg --workspace-name ml_work_place_1 --all-traffic

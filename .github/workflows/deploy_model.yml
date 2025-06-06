@@ -18,7 +18,7 @@ jobs:
       - name: Azure login 
         uses: azure/login@v1 
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          creds: ${{secrets.AZURE_CREDENTIALS}}
 
       - name: create online endpoint
         run: az ml online-endpoint create --file src/endpoint.yml --resource-group ml_studio_rg --workspace-name ml_work_place_1 || echo "Endpoint already exists"

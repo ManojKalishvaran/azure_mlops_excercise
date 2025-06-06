@@ -34,7 +34,7 @@ def main(args):
           check the automated training by push"
     )
     print(
-        "5nd print Just added to update \
+        "8nd print Just added to update \
           check the automated training by push"
     )
     print("6th for new branch")

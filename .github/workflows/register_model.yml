@@ -19,7 +19,7 @@ jobs:
         with: 
           creds: ${{secrets.AZURE_CREDENTIALS}}
       - name: Register Model
-        run: az ml model create \
+        run: az ml model register \
           --name "DiabetesClassifier" \
           --path azureml://jobs/production-model-training-1/outputs/artifacts/paths/model/ \
           --type mlflow_model \

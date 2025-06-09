@@ -1,0 +1,37 @@
+name: Final Model Deployment
+on: 
+  workflow_dispatch: 
+
+jobs: 
+  name: Create Endpoint and Deploy latest Model
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checking Out Repo 
+        uses: actions/chekout@v3 
+  
+      - name: Loging In Azure
+        uses: azure/login@v1 
+        with: 
+          creds: ${{secrets.AZURE_CREDENTIALS}}
+  
+      - name: Installing ML entension 
+        run: az extension add -n ml -y 
+  
+      - name: Creating or Updating Endpint
+        run: |
+          az ml online-endpoint create \
+          --name first-endpoint \
+          --file src/endpoint.yml \
+          --resource-group ml_studio_rg \
+          --workspace-name ml_work_place_1
+  
+      - name: Deploying model to endpoint
+        run: |
+            az ml online-deployment create \
+            --name diabetes-deployment \
+            --endpoint-name first-endpoint \
+            --file src/deployment.yml \
+            --all-traffic \
+            --resource-group ml_studio_rg \
+            --workspace-name ml_work_place_1
+    

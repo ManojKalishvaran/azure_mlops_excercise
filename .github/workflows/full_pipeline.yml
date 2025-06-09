@@ -77,4 +77,4 @@ jobs:
 
   job3: 
     saving-CD-model:
-    
+     uses: ./.github/workflows/register_model_tt.yml

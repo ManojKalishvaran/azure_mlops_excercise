@@ -23,10 +23,10 @@ jobs:
       - name: create online endpoint
         run: az ml online-endpoint create --file src/endpoint.yml --resource-group ml_studio_rg --workspace-name ml_work_place_1 || echo "Endpoint already exists"
         
-      - name: Wait for endpoint provisioning
-        run: |
-          echo "Waiting for endpoint to be ready..."
-          sleep 180 
+      # - name: Wait for endpoint provisioning
+      #   run: |
+      #     echo "Waiting for endpoint to be ready..."
+      #     sleep 180 
           
       - name: Deploy model to endpoint
         run: az ml online-deployment create --file src/deployment.yml --resource-group ml_studio_rg --workspace-name ml_work_place_1 --all-traffic

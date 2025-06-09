@@ -3,6 +3,8 @@ name: Workflow Dev-Prod
 #   push:
 #     branches:
 #       - main
+on: 
+  workflow_dispatch
 jobs:
   job1:
     name: Development Job 
@@ -72,3 +74,6 @@ jobs:
           --resource-group ml_studio_rg \
           --workspace-name test-workspace \
           --stream
+
+  job3: 
+    saving-CD-model:

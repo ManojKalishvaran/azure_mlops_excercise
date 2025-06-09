@@ -15,5 +15,19 @@ jobs:
         with: 
           creds: ${{secrets.AZURE_CREDENTIALS}}
 
-      - name: set azure subscription 
-        run: az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      # - name: set azure subscription 
+      #   run: az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      - name: get latest model 
+        run: |
+          model_info=$(az ml model list \
+            --resource-group ${{ secrets.AZURE_RESOURCE_GROUP }} \
+            --workspace-name ${{ secrets.AZURE_WORKSPACE_NAME }} \
+            --query "sort_by(@, &creation_context.created_at)[-1]" -o json)
+  
+          model_name=$(echo "$model_info" | jq -r .name)
+          model_version=$(echo "$model_info" | jq -r .version)
+  
+          echo "Latest model: $model_name:$model_version"
+  
+          echo "model_name=$model_name" >> $GITHUB_OUTPUT
+          echo "model_version=$model_version" >> $GITHUB_OUTPUT

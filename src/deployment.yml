@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
-name: blue
-endpoint_name: my-endpoint
-model: azureml:Diabetes-Classifier:latest
+name: diabetes-deployment
+endpoint_name: first-endpoint
+model: azureml:diabetes-logistic-model-2:1
 instance_type: Standard_DS2_v2
 instance_count: 1

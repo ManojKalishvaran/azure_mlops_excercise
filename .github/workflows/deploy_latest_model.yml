@@ -3,7 +3,7 @@ on:
   workflow_dispatch: 
 
 jobs: 
-    name: Create Endpoint and Deploy latest Model
+    Create-Endpoint-Deploy-latest-Model:
       runs-on: ubuntu-latest
       steps: 
       - name: Checking Out Repo 

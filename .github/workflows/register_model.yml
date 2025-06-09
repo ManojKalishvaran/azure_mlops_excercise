@@ -20,8 +20,8 @@ jobs:
           creds: ${{secrets.AZURE_CREDENTIALS}}
       - name: Register Model
         run: az ml model create \
-          --name $DiabetesClassifier \
+          --name "DiabetesClassifier" \
           --path azureml://jobs/production-model-training-1/outputs/artifacts/paths/model/ \
           --type mlflow_model \
           --resource-group ml_studio_rg \
-          --workplace-name ml_workplace_1
+          --workspace-name ml_workplace_1

@@ -1,9 +1,27 @@
 name: Register model
 on: 
   workflow_dispatch:
-run: az ml model create \
-  --name $DiabetesClassifier \
-  --path azureml://jobs/production-model-training-1/outputs/artifacts/paths/model/ \
-  --type mlflow_model \
-  --resource-group ml_studio_rg \
-  --workplace-name ml_workplace_1
+jobs: 
+  register-model:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout code 
+        uses: actions/checkout@v3
+
+      - name: Install Azure CLI 
+        run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+      - name: Azure ML extension 
+        run: az extension add -n ml -y
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with: 
+          creds: ${{secrets.AZURE_CREDENTIALS}}
+      - name: Register Model
+        run: az ml model create \
+          --name $DiabetesClassifier \
+          --path azureml://jobs/production-model-training-1/outputs/artifacts/paths/model/ \
+          --type mlflow_model \
+          --resource-group ml_studio_rg \
+          --workplace-name ml_workplace_1

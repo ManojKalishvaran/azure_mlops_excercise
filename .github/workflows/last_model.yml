@@ -15,6 +15,9 @@ jobs:
         with: 
           creds: ${{secrets.AZURE_CREDENTIALS}}
 
+      - name: install ml extension 
+        run: az extension add -n ml -y
+
       # - name: set azure subscription 
       #   run: az account set --subscription ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       - name: get latest model 

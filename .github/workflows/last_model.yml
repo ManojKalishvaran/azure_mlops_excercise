@@ -1,0 +1,19 @@
+name: Show latest model 
+on: 
+  workflow_dispatch: 
+
+jobs:
+  find_latest: 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repo 
+        uses: action/checkout@v3 
+
+      - name: Login Azure 
+        uses: azure/login@v1 
+        with: 
+          creds: ${{secrets.AZURE_CREDENTIALS}}
+
+      - name: set azure subscription 
+        run: az account set --subscription ${{secrets.AZURE_CREDENTIALS}}

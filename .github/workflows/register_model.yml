@@ -1,0 +1,9 @@
+name: Register model
+on: 
+  workflow_dispatch:
+run: az ml model create \
+  --name $DiabetesClassifier \
+  --path azureml://jobs/production-model-training-1/outputs/artifacts/paths/model/ \
+  --type mlflow_model \
+  --resource-group ml_studio_rg \
+  --workplace-name ml_workplace_1

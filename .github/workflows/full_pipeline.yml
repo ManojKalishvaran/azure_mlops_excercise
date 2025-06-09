@@ -28,9 +28,7 @@ jobs:
 
           
       - name: Install azure ml extension
-        run: |
-          az extension add -n ml -y \
-          az extension update -n ml
+        run: az extension add -n ml -y
 
 
       - name: Submit Azure ML job - Development 

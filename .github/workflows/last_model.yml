@@ -24,7 +24,7 @@ jobs:
         run: |
           model_info=$(az ml model list \
             --resource-group ml_studio_rg \
-            --workspace-name ml_workplace_1 \
+            --workspace-name ml_work_place_1 \
             --query "sort_by(@, &creation_context.created_at)[-1]" -o json)
   
           model_name=$(echo "$model_info" | jq -r .name)

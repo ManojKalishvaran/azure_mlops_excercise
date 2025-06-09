@@ -7,7 +7,7 @@ jobs:
       runs-on: ubuntu-latest
       steps: 
       - name: Checking Out Repo 
-        uses: actions/chekout@v3 
+        uses: actions/checkout@main 
   
       - name: Loging In Azure
         uses: azure/login@v1 

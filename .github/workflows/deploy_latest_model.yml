@@ -3,9 +3,9 @@ on:
   workflow_dispatch: 
 
 jobs: 
-  name: Create Endpoint and Deploy latest Model
-    runs-on: ubuntu-latest
-    steps: 
+    name: Create Endpoint and Deploy latest Model
+      runs-on: ubuntu-latest
+      steps: 
       - name: Checking Out Repo 
         uses: actions/chekout@v3 
   

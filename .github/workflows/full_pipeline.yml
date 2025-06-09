@@ -21,17 +21,17 @@ jobs:
 
       # - name: Install Azure CLI - dev
       #   run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      - name: Azure login - dev
+        uses: azure/login@v1 
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+          
       - name: Install azure ml extension
         run: |
           az extension add -n ml -y \
           az extension update -n ml
 
-
-      - name: Azure login - dev
-        uses: azure/login@v1 
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Submit Azure ML job - Development 
         run: |
@@ -57,16 +57,18 @@ jobs:
       # - name: Install Azure CLI - prod
       #   run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
+
+      - name: Azure login - prod
+        uses: azure/login@v1 
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          
       - name: Install azure ml extension - prod
         run: |
           az extension add -n ml -y \
           az extension update -n ml
 
 
-      - name: Azure login - prod
-        uses: azure/login@v1 
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Submit Azure ML job - Production 
         run: |
@@ -77,3 +79,6 @@ jobs:
 
   job3: 
      uses: ./.github/workflows/register_model_tt.yml
+
+  job4: 
+      uses: .

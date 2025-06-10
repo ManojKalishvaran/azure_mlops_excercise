@@ -73,6 +73,7 @@ jobs:
       - name: Submit Azure ML job - Production 
         run: |
           az ml job create --file src/prod_job.yml \
+          --set name=production-model-${{github.run_id}} \
           --resource-group ml_studio_rg \
           --workspace-name ml_work_place_1 \
           --stream

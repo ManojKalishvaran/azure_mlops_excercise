@@ -23,7 +23,8 @@ jobs:
           model_info=$(az ml model list \
           --resource-group ml_studio_rg \
           --workspace-name ml_work_place_1 \
-          --query "[?starts_with(name, 'production-model-training') && status=='Completed'] | [-1].name" \-o json)
+          --query "[?starts_with(name, 'production-model-training') && status=='Completed'] | [-1]" \
+          -o json)
 
           model_name=$(echo "$model_info" | jq -r .name)
           model_version=$(echo "$model_info" | jq -r .version)

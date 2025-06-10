@@ -1,6 +1,5 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 name: development-model-training-1
-displayName: Development Job Training
 code: model
 command: >-
   python train.py

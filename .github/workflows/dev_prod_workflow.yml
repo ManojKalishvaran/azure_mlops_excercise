@@ -21,7 +21,7 @@ jobs:
 
       - name: Install azure ml extension
         run: |
-          az extension add -n ml -y \
+          az extension add -n ml -y 
           az extension update -n ml
 
 
@@ -56,7 +56,7 @@ jobs:
 
       - name: Install azure ml extension - prod
         run: |
-          az extension add -n ml -y \
+          az extension add -n ml -y 
           az extension update -n ml
 
 

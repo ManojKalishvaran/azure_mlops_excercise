@@ -11,6 +11,6 @@ inputs:
     path: azureml:diabetes-prod-folder:1
   reg_rate: 0.01 
 environment: azureml://registries/azureml/environments/sklearn-1.5/versions/26
-compute: azureml:cluster-1-mlops
+compute: azureml:ML-compute-1-mlops
 experiment_name: cluster-new
 description: Training diabetes classification using production dataset

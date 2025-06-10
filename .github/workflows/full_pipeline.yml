@@ -4,6 +4,7 @@ name: Workflow Dev-Prod
 #     branches:
 #       - main
 on: 
+
   workflow_dispatch
 jobs:
   job1:
@@ -28,7 +29,7 @@ jobs:
 
           
       - name: Install azure ml extension
-        run: az extension add -n ml -y
+        run: az extension add -n ml --upgrade -y
 
 
       - name: Submit Azure ML job - Development 
@@ -63,7 +64,7 @@ jobs:
           
       - name: Install azure ml extension - prod
         run: |
-          az extension add -n ml -y \
+          az extension add -n ml --upgrade -y \
           az extension update -n ml
 
 

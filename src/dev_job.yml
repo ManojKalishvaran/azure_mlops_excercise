@@ -12,5 +12,5 @@ inputs:
   reg_rate: 0.01 
 environment: azureml://registries/azureml/environments/sklearn-1.5/versions/26
 compute: azureml:manojkaleeshvaran1
-experiment_name: diabetes-exp
+experiment_name: ML-compute-1-mlops
 description: Training diabetes classification using development dataset

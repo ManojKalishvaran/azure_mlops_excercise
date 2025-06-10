@@ -1,5 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 name: development-model-training-1
+displayName: Development Job Training
 code: model
 command: >-
   python train.py
@@ -11,6 +12,6 @@ inputs:
     path: azureml:diabetes-dev-folder:1
   reg_rate: 0.01 
 environment: azureml://registries/azureml/environments/sklearn-1.5/versions/26
-compute: azureml:manojkaleeshvaran1
-experiment_name: ML-compute-1-mlops
+compute: azureml:ML-compute-1-mlops
+experiment_name: Development-Job
 description: Training diabetes classification using development dataset

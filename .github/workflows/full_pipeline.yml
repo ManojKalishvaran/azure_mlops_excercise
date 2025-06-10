@@ -35,7 +35,7 @@ jobs:
         run: |
           az ml job create --file src/dev_job.yml \
           --resource-group ml_studio_rg \
-          --workspace-name test-workspace \
+          --workspace-name ml_work_place_1 \
           --stream
 
   job2:
@@ -72,7 +72,7 @@ jobs:
         run: |
           az ml job create --file src/prod_job.yml \
           --resource-group ml_studio_rg \
-          --workspace-name test-workspace \
+          --workspace-name ml_work_place_1 \
           --stream
 
   job3: 

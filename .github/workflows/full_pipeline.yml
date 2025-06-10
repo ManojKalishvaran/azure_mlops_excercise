@@ -1,4 +1,4 @@
-name: Workflow Dev-Prod 
+name: Full-workflow-pipeline
 # on: 
 #   push:
 #     branches:
@@ -8,7 +8,7 @@ on:
   
 jobs:
   job1:
-    name: Development Job 
+    name: Development-Job 
     runs-on: ubuntu-latest
     environment: development
     steps:
@@ -42,7 +42,7 @@ jobs:
           --stream
 
   job2:
-    name: Production Job
+    name: Production-Job
     needs: job1
     runs-on: ubuntu-latest
     environment: production

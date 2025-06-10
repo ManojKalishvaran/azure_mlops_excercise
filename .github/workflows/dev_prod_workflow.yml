@@ -1,10 +1,6 @@
 name: Workflow Dev-Prod 
-# on: 
-#   push:
-#     branches:
-#       - main
-on: 
-  workflow_dispatch
+on:
+  workflow_dispatch:
 jobs:
   job1:
     name: Development Job 

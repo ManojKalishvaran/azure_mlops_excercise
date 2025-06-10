@@ -1,5 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 name: production-model-training-1
+displayName: Production Job Training
 code: model
 command: >-
   python train.py
@@ -12,5 +13,5 @@ inputs:
   reg_rate: 0.01 
 environment: azureml://registries/azureml/environments/sklearn-1.5/versions/26
 compute: azureml:ML-compute-1-mlops
-experiment_name: cluster-new
+experiment_name: Production-Job
 description: Training diabetes classification using production dataset

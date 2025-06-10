@@ -20,16 +20,18 @@ jobs:
         with:
           python-version: "3.8"
 
-      # - name: Install Azure CLI - dev
-      #   run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      - name: Install Azure CLI - dev
+        run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+      - name: Install azure ml extension - dev
+        run: |
+          az extension add -n ml -y \
+          az extension update -n ml
+
       - name: Azure login - dev
         uses: azure/login@v1 
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-          
-      - name: Install azure ml extension
-        run: az extension add -n ml --upgrade -y
 
 
       - name: Submit Azure ML job - Development 
@@ -53,20 +55,18 @@ jobs:
         with:
           python-version: "3.8"
 
-      # - name: Install Azure CLI - prod
-      #   run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+      - name: Install Azure CLI - prod
+        run: curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
+      - name: Install azure ml extension - prod
+        run: |
+          az extension add -n ml -y \
+          az extension update -n ml
 
       - name: Azure login - prod
         uses: azure/login@v1 
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          
-      - name: Install azure ml extension - prod
-        run: |
-          az extension add -n ml --upgrade -y \
-          az extension update -n ml
-
 
 
       - name: Submit Azure ML job - Production 
